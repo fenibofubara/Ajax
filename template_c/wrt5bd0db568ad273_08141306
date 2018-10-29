@@ -1,0 +1,69 @@
+<?php
+/* Smarty version 3.1.30, created on 2018-10-24 22:51:34
+  from "C:\xamppp\htdocs\Ajax\template\search.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5bd0db5689f574_74360436',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '1d9275279e954df00f26bdc8291606a4862d0410' => 
+    array (
+      0 => 'C:\\xamppp\\htdocs\\Ajax\\template\\search.tpl',
+      1 => 1540414290,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5bd0db5689f574_74360436 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '20812795795bd0db5657a375_32975323';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $_smarty_tpl->tpl_vars['head']->value;?>
+</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+	
+	<?php echo '<script'; ?>
+ type="text/javascript">
+		
+		function request(){
+			var ajax = new XMLHttpRequest();
+			ajax.onreadystatechange = response
+			ajax.open('GET','searchajax.php?searchtext='+document.search.searchtext.value,true);
+			//ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded') DONT USE FOR GET METHOD
+			ajax.send();
+
+		}
+
+		function response(){
+			if(ajax.readyState===4 && status===200){
+				
+			document.getElementById('displaysearch').innerHTML =JSON.parse(ajax.responseText);
+			
+			}
+
+		}
+
+	<?php echo '</script'; ?>
+>
+<form  method= "" id ="search" name="search" action="">
+		
+		<div align="center">
+			<h4>Google</h4><br><input type="text" name="searchtext" placeholder="Search here" id='in' onkeyup="request();"></div>
+		
+	</form>
+				<div id='displaysearch'> </div>
+</body>
+</html>
+
+<?php }
+}

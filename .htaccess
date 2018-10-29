@@ -1,0 +1,11 @@
+#Edit.php to .html or any other extension of your choice
+
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+#The_Line_Below_Enables_Links_To_Work_Without_Using.php_Extension
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+#challenge
+RewriteRule ^log/?$ includes/log.php [L]
+

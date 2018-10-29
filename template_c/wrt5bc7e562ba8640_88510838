@@ -1,0 +1,81 @@
+<?php
+/* Smarty version 3.1.30, created on 2018-10-18 03:44:02
+  from "C:\xamppp\htdocs\Ajax\template\autorefreshinterface.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5bc7e562988510_94079477',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '5026d74a4568012f4683723e90aea0062be656fa' => 
+    array (
+      0 => 'C:\\xamppp\\htdocs\\Ajax\\template\\autorefreshinterface.tpl',
+      1 => 1539827033,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5bc7e562988510_94079477 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '8797516815bc7e560f3ec39_38364539';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $_smarty_tpl->tpl_vars['autorefresh']->value;?>
+</title>
+</head>
+<body>
+<ol id='ul'></ol>
+<?php echo '<script'; ?>
+ type="text/javascript">
+	var ajax = new XMLHttpRequest();
+	var ul = document.getElementById('ul');
+
+	function request(){
+		var url = 'autorefreshajax.php';
+		ajax.onreadystatechange =response
+		ajax.open('POST',url,true)
+		ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+		ajax.send('db=all')
+
+	}
+	function response(){
+		if(ajax.readyState===4){
+			if(ajax.status===200){
+				var result = JSON.parse(ajax.responseText);
+				var content = "I am "+result.name+",and i am a "+result.sex;
+				ul.innerHTML="";
+				//if u remove this all the request fetched per sec will keep displayin in DOM
+				feed(content,ul);
+
+
+			}
+
+		}
+	}
+
+	function feed(element_content,parent_container){
+		//this function is to create a li,collect content into it and add it into its parent element
+		var li = document.createElement('li');//Create element
+		li.append(element_content);// Add content to the element
+		parent_container.appendChild(li)// add element to its parent element
+
+	}
+
+ //request();
+
+ /** Updated data from the php backend database at this point does not update automatically.
+ a native function is however needed to do auto interval**/
+  /**setInterval(function(){request()},3000)**/
+
+
+<?php echo '</script'; ?>
+>
+</body>
+</html><?php }
+}

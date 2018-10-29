@@ -1,0 +1,44 @@
+<?php
+/* Smarty version 3.1.30, created on 2018-10-25 11:31:31
+  from "C:\xamppp\htdocs\Ajax\template\login.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5bd18d7316e532_05249651',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'cafe91df37769a462b405843bab2aad49e3c5eeb' => 
+    array (
+      0 => 'C:\\xamppp\\htdocs\\Ajax\\template\\login.tpl',
+      1 => 1540459850,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5bd18d7316e532_05249651 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '3630532595bd18d72f20111_41505969';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $_smarty_tpl->tpl_vars['head']->value;?>
+</title>
+	<link rel="shortcut icon" href="logosmall.png">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="col-md-6" style="margin-top:20px" align="center">
+		<div class="panel panel-default" >
+	<div class="panel-heading"></div>
+	<div class="panel-body"></div>
+</div>
+	</div>
+
+</body>
+</html><?php }
+}
